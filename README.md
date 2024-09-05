@@ -1,3 +1,6 @@
+# Rogue Animator 
+*rogue-animator*
+
 This is a package for [Rogue Engine](). You should install it in your project from the Marketplace within the editor.
 
 This package contains the **RogueAnimator** component. A simple solution to help you load and mix animations, using the threejs Animation Mixer.
