@@ -1,6 +1,8 @@
 import * as RE from 'rogue-engine';
 import * as THREE from 'three';
 
+const v0 = new THREE.Vector3();
+
 @RE.registerComponent
 export default class RogueAnimator extends RE.Component {
   @RE.props.map.animation()
@@ -267,11 +269,17 @@ export default class RogueAnimator extends RE.Component {
 
   update() {
     const rootBone = this.getRootBone();
-    const pos = rootBone.position.clone();
+    let pos = v0;
+
+    if (rootBone) {
+      pos = rootBone.position.clone();
+    }
     
     this.mixer.update(RE.Runtime.deltaTime);
     
-    rootBone.position.x = pos.x;
-    rootBone.position.z = pos.z;
+    if (rootBone) {
+      rootBone.position.x = pos.x;
+      rootBone.position.z = pos.z;
+    }
   }
 }
